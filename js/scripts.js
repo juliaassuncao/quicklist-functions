@@ -1,8 +1,11 @@
 const form = document.querySelector("form")
 const input = document.getElementById("new-item")
+const listContainer = document.querySelector(".listContainer")
 
 function createNewItem() {
-    // TO-DO: implementar criação de novos itens
+    
+    const item = document.createElement("div")
+    item.classList.add("list-item")
 }
 
 function addItemToList() {
