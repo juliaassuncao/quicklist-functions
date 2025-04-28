@@ -15,7 +15,8 @@ function addItemToList(item) {
 }
 
 function clearInput() {
-    // TO-DO: implementar funcionalidade de limpar o input
+    input.value = ""
+    input.focus()
 }
 
 form.onsubmit = (event) => {
