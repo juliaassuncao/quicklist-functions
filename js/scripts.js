@@ -2,6 +2,7 @@ const form = document.querySelector("form")
 const input = document.getElementById("new-item")
 const listContainer = document.querySelector(".list-container")
 const removeAlert = document.querySelector(".remove-alert")
+const closeAlertIcon = document.querySelector(".close-alert")
 
 function createNewItem(itemText) {
 
@@ -53,3 +54,15 @@ form.onsubmit = (event) => {
 function showRemoveAlert() {
     removeAlert.classList.remove("hidden")
 }
+
+listContainer.addEventListener("click", (event) => {
+    
+    if (event.target.classList.contains("remove-button")) {
+        const item = event.target.closest(".list-item")
+        
+        if(item) {
+            item.remove()
+            showRemoveAlert()
+        }
+    }
+})
