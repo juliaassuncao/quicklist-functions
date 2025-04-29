@@ -1,6 +1,8 @@
 const form = document.querySelector("form")
 const input = document.getElementById("new-item")
 const listContainer = document.querySelector(".list-container")
+const removeAlert = document.querySelector(".remove-alert")
+const closeAlertIcon = document.querySelector(".close-alert")
 
 function createNewItem(itemText) {
 
@@ -37,6 +39,17 @@ function clearInput() {
     input.focus()
 }
 
+function showRemoveAlert() {
+    removeAlert.classList.remove("hidden")
+    setTimeout(() => {
+        removeAlert.classList.add("hidden")
+    }, 2000)
+}
+
+function closeAlert() {
+    removeAlert.classList.add("hidden")
+}
+
 form.onsubmit = (event) => {
     event.preventDefault()
 
@@ -49,3 +62,14 @@ form.onsubmit = (event) => {
     }
 }
 
+listContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("remove-button")) {
+        const item = event.target.closest(".list-item")
+        if(item) {
+            item.remove()
+            showRemoveAlert()
+        }
+    }
+})
+
+closeAlertIcon.addEventListener("click", closeAlert)
