@@ -82,7 +82,6 @@ span, label, i {
     background-color: transparent;
 }
 
-/* Atualização aqui: list-body virou list-container */
 .list-container {
     max-height: 270px;
     margin-top: 40px;
