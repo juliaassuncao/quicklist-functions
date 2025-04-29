@@ -39,6 +39,17 @@ function clearInput() {
     input.focus()
 }
 
+function showRemoveAlert() {
+    removeAlert.classList.remove("hidden")
+    setTimeout(() => {
+        removeAlert.classList.add("hidden")
+    }, 2000)
+}
+
+function closeAlert() {
+    removeAlert.classList.add("hidden")
+}
+
 form.onsubmit = (event) => {
     event.preventDefault()
 
@@ -51,25 +62,14 @@ form.onsubmit = (event) => {
     }
 }
 
-function showRemoveAlert() {
-    removeAlert.classList.remove("hidden")
-}
-
 listContainer.addEventListener("click", (event) => {
-    
     if (event.target.classList.contains("remove-button")) {
         const item = event.target.closest(".list-item")
-        
         if(item) {
             item.remove()
             showRemoveAlert()
-            closeAlert()
         }
     }
 })
 
-function closeAlert() {
-    setTimeout(() => {
-        removeAlert.classList.add("hidden")
-    }, 3000)
-}
+closeAlertIcon.addEventListener("click", closeAlert)
