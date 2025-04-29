@@ -63,6 +63,13 @@ listContainer.addEventListener("click", (event) => {
         if(item) {
             item.remove()
             showRemoveAlert()
+            closeAlert()
         }
     }
 })
+
+function closeAlert() {
+    setTimeout(() => {
+        removeAlert.classList.add("hidden")
+    }, 3000)
+}
